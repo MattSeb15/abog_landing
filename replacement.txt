@@ -1,0 +1,225 @@
+function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="fixed top-0 w-full z-50 transition-all duration-300">
+      {/* Top Bar */}
+      <div className="hidden md:block bg-[#0A1128] text-white/70 py-2.5 text-[10px] md:text-xs">
+        <div className="max-w-7xl mx-auto px-[5%] flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-2 font-medium tracking-widest uppercase">
+              <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" /> QUITO - IBARRA - TULCÁN
+            </div>
+            <div className="flex items-center gap-2 font-bold tracking-widest">
+              <Phone className="w-3.5 h-3.5 text-[#D4AF37]" /> {siteConfig.whatsappDisplay}
+            </div>
+          </div>
+          <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
+              <FaTiktok className="w-4 h-4 hover:text-[#D4AF37] cursor-pointer transition-colors" />
+              <FaInstagram className="w-4 h-4 hover:text-[#D4AF37] cursor-pointer transition-colors" />
+              <FaFacebook className="w-4 h-4 hover:text-[#D4AF37] cursor-pointer transition-colors" />
+              <FaLinkedin className="w-4 h-4 hover:text-[#D4AF37] cursor-pointer transition-colors" />
+            </div>
+            <div className="flex items-center gap-2 font-medium tracking-widest uppercase">
+              <Mail className="w-3.5 h-3.5 text-[#D4AF37]" /> {siteConfig.email.toUpperCase()}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar */}
+      <header className={`w-full transition-all duration-300 bg-white ${scrolled ? "shadow-md py-3" : "py-4"}`}>
+        <div className="max-w-7xl mx-auto px-[5%] flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3">
+            <Image src="/logo_transparent.webp" alt={siteConfig.name} width={50} height={50} className="w-[50px] h-[50px] object-contain invert brightness-0" />
+            <span className="font-heading font-extrabold text-xl text-[#0A1128] tracking-wide hidden lg:block uppercase">
+              Paredes & Asociados
+            </span>
+          </Link>
+          
+          <nav className="hidden lg:flex items-center gap-8 text-[11px] font-bold text-[#0A1128] tracking-widest">
+            <Link href="/" className="border-b-[3px] border-[#D4AF37] pb-1 hover:text-[#D4AF37] transition-colors">INICIO</Link>
+            <Link href="#servicios" className="hover:text-[#D4AF37] transition-colors pb-1">SERVICIOS</Link>
+            <Link href="#nosotros" className="hover:text-[#D4AF37] transition-colors pb-1">NOSOTROS</Link>
+            <Link href="#cobertura" className="hover:text-[#D4AF37] transition-colors pb-1">COBERTURA</Link>
+            <Link href="#faq" className="hover:text-[#D4AF37] transition-colors pb-1">FAQ</Link>
+            <Link href="#contacto" className="hover:text-[#D4AF37] transition-colors pb-1">CONTACTO</Link>
+          </nav>
+          
+          <div className="hidden md:block">
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#0A1128] text-white hover:bg-[#111c40] px-7 py-3.5 rounded-full font-bold text-[11px] uppercase tracking-wider transition-all duration-300 shadow-md flex items-center gap-2"
+            >
+              <FaWhatsapp className="w-4 h-4 text-[#D4AF37]" /> CONSULTA GRATUITA
+            </a>
+          </div>
+
+          <Sheet>
+            <SheetTrigger render={<Button variant="ghost" size="icon" className="text-[#0A1128] hover:text-[#D4AF37] hover:bg-black/5"><Menu className="w-6 h-6" /></Button>} className="lg:hidden" />
+            <SheetContent side="right" className="bg-[#0A1128] border-l-[#D4AF37]/20">
+              <div className="flex flex-col gap-8 mt-12">
+                {navLinks.map((link, i) => (
+                  <Link key={i} href={link.href} className="text-white/80 hover:text-[#D4AF37] text-lg font-medium transition-colors uppercase tracking-widest">
+                    {link.label}
+                  </Link>
+                ))}
+                <a
+                  href={`https://wa.me/${siteConfig.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#D4AF37] text-[#0A1128] hover:bg-[#b5952f] px-6 py-3 rounded-md font-bold text-center transition-colors uppercase tracking-widest flex items-center justify-center gap-2"
+                >
+                  <FaWhatsapp className="w-5 h-5" /> Consulta Gratis
+                </a>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </header>
+    </div>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative min-h-[95vh] flex items-center pt-32 pb-16 overflow-hidden bg-[#0A1128]">
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-20 z-0 pointer-events-none mix-blend-screen"
+      >
+        <source src="/paredes_fondo_vid_720.webm" type="video/webm" />
+      </video>
+      
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A1128] via-[#0A1128]/95 to-transparent z-10 pointer-events-none" />
+      
+      <div className="relative z-20 max-w-7xl mx-auto px-[5%] w-full grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left Column */}
+        <div className="flex flex-col justify-center py-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="flex items-center gap-4 text-[#D4AF37] text-[10px] font-bold tracking-[0.2em] mb-6">
+            <span className="w-10 h-[2px] bg-[#D4AF37]"></span>
+            {heroData.badge}
+          </motion.div>
+          
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="text-5xl lg:text-[68px] font-extrabold leading-[1.1] mb-6 text-white font-sans tracking-tight">
+            Protegemos lo que<br/>
+            <span className="text-[#D4AF37]">más te importa.</span>
+          </motion.h1>
+          
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }} className="text-white/70 text-[15px] max-w-[480px] leading-relaxed mb-10 font-light">
+            Somos un estudio jurídico serio y confiable especializado en <strong className="text-white font-medium">Derecho de Familia, Civil, Penal y Laboral</strong>. Atención personalizada con resultados reales en todo el Ecuador.
+          </motion.p>
+          
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex flex-wrap items-center gap-8 mb-16">
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#D4AF37] text-[#0A1128] hover:bg-[#b5952f] px-7 py-3.5 rounded-sm font-bold text-[11px] uppercase tracking-wider flex items-center gap-3 transition-colors shadow-[0_4px_14px_0_rgba(212,175,55,0.39)]"
+            >
+              <FaWhatsapp className="w-4 h-4" /> ESCRÍBENOS AL WHATSAPP
+            </a>
+            <a
+              href="#servicios"
+              className="text-white hover:text-[#D4AF37] font-bold uppercase tracking-wider text-[11px] transition-colors flex items-center gap-2 group"
+            >
+              VER SERVICIOS <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.8 }} className="flex items-center gap-8">
+            <div className="flex items-center gap-8">
+              <div>
+                <div className="text-[32px] font-extrabold text-white mb-0 leading-none">+10<span className="text-[#D4AF37] text-2xl align-top">+</span></div>
+                <div className="text-[9px] text-white/50 tracking-widest font-bold uppercase mt-2">AÑOS DE EXPERIENCIA</div>
+              </div>
+              <div className="w-[1px] h-12 bg-white/20"></div>
+              <div>
+                <div className="text-[32px] font-extrabold text-white mb-0 leading-none">+200<span className="text-[#D4AF37] text-2xl align-top">+</span></div>
+                <div className="text-[9px] text-white/50 tracking-widest font-bold uppercase mt-2">CASOS RESUELTOS</div>
+              </div>
+              <div className="w-[1px] h-12 bg-white/20"></div>
+              <div>
+                <div className="text-[32px] font-extrabold text-white mb-0 leading-none">3<span className="text-[#D4AF37] text-2xl align-top">+</span></div>
+                <div className="text-[9px] text-white/50 tracking-widest font-bold uppercase mt-2">OFICINAS EN ECUADOR</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+        
+        {/* Right Column (Image Composition) */}
+        <div className="hidden lg:flex relative h-full min-h-[650px] items-center justify-end">
+          {/* Big Paragraph Section symbol watermark */}
+          <div className="absolute -bottom-10 right-0 text-[300px] font-serif text-white/[0.03] leading-none pointer-events-none select-none z-0">
+            §
+          </div>
+
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative w-full max-w-[500px] aspect-square z-10 mr-4">
+            
+            {/* Floating golden outline top-left */}
+            <div className="absolute -top-6 left-12 w-48 h-48 border-t-[1px] border-l-[1px] border-[#D4AF37] rounded-tl-[80px] z-0 opacity-50"></div>
+            
+            {/* Main image (Top Right rounded) */}
+            <div className="absolute top-0 right-0 w-[85%] h-[95%] rounded-tr-[120px] rounded-tl-[20px] rounded-bl-[20px] rounded-br-[20px] overflow-hidden shadow-2xl z-10 border border-white/5 bg-[#111c40]">
+               <Image src="/paredes_white.webp" alt="Abogado principal" fill className="object-cover object-top opacity-90" priority />
+               <div className="absolute inset-0 bg-[#0A1128]/20 mix-blend-multiply"></div>
+            </div>
+            
+            {/* Secondary image (Bottom Left, leaf shape) */}
+            <div className="absolute bottom-0 -left-6 w-[55%] h-[55%] rounded-tl-[60px] rounded-br-[60px] rounded-tr-[20px] rounded-bl-[20px] overflow-hidden border-[6px] border-[#0A1128] z-20 shadow-2xl bg-[#111c40]">
+               <Image src="/paredes_white.webp" alt="Abogado detalle" fill className="object-cover object-center scale-125 translate-y-4" />
+            </div>
+            
+            {/* Glassmorphic Floating Badge */}
+            <div className="absolute top-1/4 -left-12 z-30 bg-white/10 backdrop-blur-md border border-white/20 px-5 py-4 rounded-2xl flex items-center gap-4 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
+              <div className="w-12 h-12 rounded-full border border-[#D4AF37]/50 flex items-center justify-center bg-[#0A1128]/80">
+                <Scale className="w-5 h-5 text-[#D4AF37]" />
+              </div>
+              <div>
+                <div className="text-white font-bold text-[13px] tracking-wide mb-0.5">Defensa Legal</div>
+                <div className="text-white/60 text-[8px] uppercase tracking-widest font-semibold">ESTRATEGIA INQUEBRANTABLE</div>
+              </div>
+            </div>
+
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TrustStrip() {
+  return (
+    <div className="bg-[#D4AF37] py-4 relative z-30 shadow-[0_-10px_30px_rgba(0,0,0,0.15)] overflow-hidden border-b-4 border-[#0A1128]">
+      <div className="max-w-7xl mx-auto px-[5%] flex flex-wrap justify-center gap-6 md:gap-16">
+        <div className="flex items-center gap-2.5 text-[#0A1128] font-extrabold text-[11px] tracking-widest uppercase">
+          <FaStar className="w-4 h-4" /> RESULTADOS REALES
+        </div>
+        <div className="flex items-center gap-2.5 text-[#0A1128] font-extrabold text-[11px] tracking-widest uppercase">
+          <FaClock className="w-4 h-4" /> ATENCIÓN RÁPIDA
+        </div>
+        <div className="flex items-center gap-2.5 text-[#0A1128] font-extrabold text-[11px] tracking-widest uppercase">
+          <ShieldCheck className="w-4 h-4" /> PRECIO ACORDADO = PRECIO FINAL
+        </div>
+        <div className="flex items-center gap-2.5 text-[#0A1128] font-extrabold text-[11px] tracking-widest uppercase">
+          <FaDesktop className="w-4 h-4" /> CONSULTAS TELEMÁTICAS
+        </div>
+      </div>
+    </div>
+  );
+}
