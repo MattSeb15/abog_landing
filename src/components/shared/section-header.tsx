@@ -1,4 +1,4 @@
-﻿import { ScrollAnimation } from "./scroll-animation";
+import { ScrollAnimation } from "./scroll-animation";
 
 interface SectionHeaderProps {
   label: string;
@@ -12,7 +12,8 @@ export function SectionHeader({ label, title, subtitle, light, className }: Sect
   return (
     <div className={`mb-12 ${className || ""}`}>
       <ScrollAnimation variant="fade-up">
-        <p className="text-gold text-xs font-bold tracking-[0.12em] uppercase mb-3">
+        <p className="inline-flex items-center justify-center md:justify-start text-gold text-xs font-bold tracking-[0.12em] uppercase mb-3">
+          <span className="w-1.5 h-1.5 bg-brand-red rounded-none mr-2 mt-[-1px]"></span>
           {label}
         </p>
       </ScrollAnimation>
