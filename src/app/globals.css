@@ -56,6 +56,8 @@
   --color-gold-light: #E8C97A;
   --color-gold-dark: #B08D35;
   --color-off-white: #F8F7F4;
+  --color-brand-red: #4A0404;
+  --color-brand-red-light: #7A0B0B;
 }
 
 :root {
@@ -145,12 +147,9 @@ html {
 
 @keyframes shimmer {
   0% {
-    transform: translateX(-200%) skewX(-20deg);
-  }
-  30% {
-    transform: translateX(300%) skewX(-20deg);
+    transform: translateX(-150vw) skewX(-20deg);
   }
   100% {
-    transform: translateX(300%) skewX(-20deg);
+    transform: translateX(150vw) skewX(-20deg);
   }
 }
