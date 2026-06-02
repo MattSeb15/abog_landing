@@ -86,9 +86,9 @@ const IconMap: Record<string, any> = {
   ClipboardList: ClipboardList,
   Car: Car,
   Star: FaStar,
-  Clock: Clock,
-  ShieldCheck: ShieldCheck,
-  Monitor: Monitor,
+  Clock: FaClock,
+  ShieldCheck: FaShield,
+  Monitor: FaDesktop,
   MapPin: MapPin,
   Globe: Globe,
 };
@@ -186,7 +186,7 @@ function Navbar() {
       </div>
 
       {/* Main Navbar */}
-      <header className={`sticky top-0 w-full z-40 transition-all duration-300 bg-navy shadow-md py-4 px-[5%]`}>
+      <header className={`sticky top-0 w-full z-40 transition-all duration-300 bg-navy border-t-[4px] border-brand-red shadow-md py-4 px-[5%]`}>
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
           <Link href="/" className="flex items-center gap-5">
             <Image src="/logo_transparent.webp" alt={siteConfig.name} width={65} height={65} className="w-[65px] h-[65px] object-contain" />
@@ -223,22 +223,35 @@ function Navbar() {
             <SheetTrigger render={<Button variant="ghost" size="icon" className="xl:hidden text-white hover:text-gold hover:bg-white/10" />}>
               <Menu className="w-6 h-6" />
             </SheetTrigger>
-            <SheetContent side="right" className="bg-white border-l-gold/20">
-              <div className="flex flex-col gap-8 mt-12">
-                <Link href="/" className="text-navy hover:text-gold text-lg font-bold uppercase tracking-wider transition-colors">INICIO</Link>
+            <SheetContent side="right" className="bg-white border-l-gold/20 p-6 sm:p-10 flex flex-col">
+              <div className="flex items-center gap-4 mb-8 mt-2">
+                <Image src="/logo_transparent.webp" alt={siteConfig.name} width={50} height={50} className="w-[50px] h-[50px] object-contain" />
+                <div className="flex flex-col justify-center">
+                  <span className="text-navy font-black text-[13px] leading-none tracking-[0.1em] uppercase">
+                    Corporativo Jurídico
+                  </span>
+                  <span className="text-gold font-bold text-[10px] tracking-[0.15em] uppercase mt-1">
+                    Paredes & Asociados
+                  </span>
+                </div>
+              </div>
+              <div className="flex flex-col gap-6">
+                <Link href="/" className="text-navy hover:text-gold text-xl font-black uppercase tracking-widest transition-colors">INICIO</Link>
                 {navLinks.map((link, i) => (
-                  <Link key={i} href={link.href} className="text-navy hover:text-gold text-lg font-bold uppercase tracking-wider transition-colors">
+                  <Link key={i} href={link.href} className="text-navy hover:text-gold text-xl font-black uppercase tracking-widest transition-colors">
                     {link.label}
                   </Link>
                 ))}
-                <a
-                  href={`https://wa.me/${siteConfig.whatsappNumber}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-navy text-white hover:bg-navy-light px-6 py-3 rounded-none font-bold text-center transition-colors uppercase tracking-wider flex justify-center items-center gap-2"
-                >
-                  <FaWhatsapp className="w-5 h-5 text-gold" /> Consulta Gratuita
-                </a>
+                <div className="mt-8">
+                  <a
+                    href={`https://wa.me/${siteConfig.whatsappNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-navy text-white hover:bg-navy-light px-6 py-4 rounded-none font-bold text-center transition-colors uppercase tracking-widest flex justify-center items-center gap-2 text-[14px] border-t-[3px] border-t-brand-red"
+                  >
+                    <FaWhatsapp className="w-5 h-5 text-gold" /> Consulta Gratuita
+                  </a>
+                </div>
               </div>
             </SheetContent>
           </Sheet>
@@ -250,6 +263,7 @@ function Navbar() {
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentBgImage, setCurrentBgImage] = useState(0);
   const [isLawyerHovered, setIsLawyerHovered] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -275,9 +289,18 @@ function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % servicesData.length);
-    }, 3000);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    const bgTimer = setInterval(() => {
+      setCurrentBgImage((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+    return () => clearInterval(bgTimer);
+  }, []);
+
+  const safeSlide = currentSlide % servicesData.length;
 
   return (
     <section className="relative lg:min-h-[calc(100vh-80px)] min-h-[600px] bg-navy flex items-center overflow-hidden py-12 lg:py-0 px-[5%]">
@@ -317,12 +340,12 @@ function Hero() {
             Somos un estudio jurídico serio y confiable especializado en <TooltipLink href="#servicios" tooltipText="Ir a nuestros servicios">Derecho de Familia, Civil, Penal y Laboral</TooltipLink>. Atención personalizada con resultados reales en todo el <strong className="text-white font-bold">Ecuador</strong>.
           </motion.p>
           
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex flex-wrap items-center gap-5">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 w-full sm:w-auto">
             <a
               href={`https://wa.me/${siteConfig.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-[#D4AF37] text-navy font-black text-[13px] uppercase tracking-widest px-8 py-4 transition-all hover:bg-[#F3CF55] shadow-[0_4px_20px_rgba(212,175,55,0.3)] hover:-translate-y-1"
+              className="w-full sm:w-auto inline-flex items-center justify-center bg-[#D4AF37] text-navy font-black text-[13px] uppercase tracking-widest px-8 py-4 transition-all hover:bg-[#F3CF55] shadow-[0_4px_20px_rgba(212,175,55,0.3)] hover:-translate-y-1"
             >
               <FaWhatsapp className="w-5 h-5 mr-3" />
               ESCRÍBENOS AL WHATSAPP
@@ -330,30 +353,30 @@ function Hero() {
             
             <a
               href="#servicios"
-              className="inline-flex items-center justify-center text-white hover:text-gold font-bold text-[13px] uppercase tracking-widest px-6 py-4 transition-colors border-b-2 border-transparent hover:border-gold"
+              className="w-full sm:w-auto inline-flex items-center justify-center text-white hover:text-gold font-bold text-[13px] uppercase tracking-widest px-6 py-4 transition-colors border-b-2 border-transparent hover:border-gold"
             >
               VER SERVICIOS <ArrowRight className="w-4 h-4 ml-2" />
             </a>
           </motion.div>
           
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="flex flex-wrap items-center gap-10 mt-16 pt-8 border-t border-white/10">
-            <div className="flex flex-col relative pr-10 after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-12 after:bg-white/10">
-              <span className="font-heading text-[40px] text-white font-black mb-1 flex items-center leading-none">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="grid grid-cols-2 md:flex md:flex-wrap items-center gap-y-8 gap-x-6 md:gap-10 mt-16 pt-8 border-t border-white/10">
+            <div className="flex flex-col relative md:pr-10 md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/2 md:after:-translate-y-1/2 md:after:w-px md:after:h-12 md:after:bg-white/10">
+              <span className="font-heading text-[32px] md:text-[40px] text-white font-black mb-1 flex items-center leading-none">
                 +10<span className="text-gold text-2xl ml-1">+</span>
               </span>
-              <p className="text-white/50 text-[10px] tracking-[0.2em] uppercase font-bold mt-2">AÑOS DE EXPERIENCIA</p>
+              <p className="text-white/50 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold mt-2">AÑOS DE EXPERIENCIA</p>
             </div>
-            <div className="flex flex-col relative pr-10 after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-12 after:bg-white/10">
-              <span className="font-heading text-[40px] text-white font-black mb-1 flex items-center leading-none">
+            <div className="flex flex-col relative md:pr-10 md:after:content-[''] md:after:absolute md:after:right-0 md:after:top-1/2 md:after:-translate-y-1/2 md:after:w-px md:after:h-12 md:after:bg-white/10">
+              <span className="font-heading text-[32px] md:text-[40px] text-white font-black mb-1 flex items-center leading-none">
                 +200<span className="text-gold text-2xl ml-1">+</span>
               </span>
-              <p className="text-white/50 text-[10px] tracking-[0.2em] uppercase font-bold mt-2">CASOS RESUELTOS</p>
+              <p className="text-white/50 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold mt-2">CASOS RESUELTOS</p>
             </div>
-            <div className="flex flex-col relative">
-              <span className="font-heading text-[40px] text-white font-black mb-1 flex items-center leading-none">
+            <div className="flex flex-col relative col-span-2">
+              <span className="font-heading text-[32px] md:text-[40px] text-white font-black mb-1 flex items-center leading-none">
                 3<span className="text-gold text-2xl ml-1">+</span>
               </span>
-              <p className="text-white/50 text-[10px] tracking-[0.2em] uppercase font-bold mt-2">OFICINAS EN ECUADOR</p>
+              <p className="text-white/50 text-[9px] md:text-[10px] tracking-[0.2em] uppercase font-bold mt-2">OFICINAS EN ECUADOR</p>
             </div>
           </motion.div>
         </div>
@@ -363,16 +386,28 @@ function Hero() {
           
           {/* Main Background Image Shape (Lawyer) */}
           <div 
-            className="absolute right-0 top-0 w-[85%] h-full rounded-none overflow-hidden border border-white/10 shadow-2xl z-10 group bg-navy-light cursor-pointer"
+            className="absolute right-0 top-0 w-[85%] h-full rounded-none overflow-hidden border border-white/10 shadow-2xl z-10 group bg-navy-light cursor-pointer flex flex-col"
             onMouseEnter={() => setIsLawyerHovered(true)}
             onMouseLeave={() => setIsLawyerHovered(false)}
             onMouseMove={handleLawyerMouseMove}
           >
-            <Image src="/paredes_white.webp" alt="Abogado principal" fill className="object-cover object-[center_top] opacity-90 transition-transform duration-1000 group-hover:scale-105" priority />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent"></div>
+            {/* Top Bar with Name */}
+            <div className="w-full bg-navy border-b border-white/10 z-30 py-3 px-6 flex justify-center items-center shrink-0">
+               <span className="text-gold font-bold text-[11px] tracking-[0.2em] uppercase">{aboutData.name}</span>
+            </div>
+            
+            <div className="relative flex-1 w-full overflow-hidden bg-navy-light">
+              <div className={`absolute inset-0 transition-opacity duration-[1500ms] ${currentBgImage === 0 ? 'opacity-90' : 'opacity-0'}`}>
+                <Image src="/only_abog.png" alt="Abogado principal" fill className="object-cover object-[85%_top] transition-transform duration-1000 group-hover:scale-105" priority />
+              </div>
+              
+              <div className={`absolute inset-0 transition-opacity duration-[1500ms] ${currentBgImage === 1 ? 'opacity-90' : 'opacity-0'}`}>
+                <Image src="/paredes_pc.webp" alt="Abogado en PC" fill className="object-cover object-[center_top] transition-transform duration-1000 group-hover:scale-105" priority />
+              </div>
+            </div>
             
             <AnimatePresence>
-              {isLawyerHovered && (
+              {isLawyerHovered && !isServiceHovered && (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -388,87 +423,79 @@ function Hero() {
                     translateX: "15px",
                     translateY: "15px",
                   }}
-                  className="bg-navy border border-gold/30 px-4 py-2 rounded-none text-[12px] font-bold tracking-wider uppercase text-gold shadow-xl flex items-center gap-2 whitespace-nowrap"
+                  className="bg-navy border-l-[3px] border-l-brand-red border-y border-r border-gold/30 px-4 py-2 rounded-none text-[12px] font-bold tracking-wider uppercase text-gold shadow-xl flex items-center gap-2 whitespace-nowrap"
                 >
                   Conoce al ab. Paredes
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
 
-          {/* Secondary Floating Image (Service Card) */}
-          <div 
-            className="absolute left-0 bottom-12 w-[35%] h-[32%] rounded-none overflow-hidden border-[4px] border-navy shadow-2xl z-20 group cursor-pointer bg-navy"
-            onMouseEnter={() => setIsServiceHovered(true)}
-            onMouseLeave={() => setIsServiceHovered(false)}
-            onMouseMove={handleServiceMouseMove}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentSlide}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                className="absolute inset-0 flex flex-col items-center justify-center"
-              >
-                <Image src={servicesData[currentSlide].image} alt={servicesData[currentSlide].title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-navy/50 backdrop-blur-[4px]"></div>
-                
-                {/* Etiqueta con icono */}
-                <div className="absolute top-0 left-6 z-20 drop-shadow-[0_4px_8px_rgba(0,0,0,0.35)]">
-                  <div 
-                    className="w-12 h-14 text-[#050B14] flex flex-col items-center pt-3 relative overflow-hidden transition-transform duration-500 group-hover:-translate-y-1"
-                    style={{ 
-                      backgroundImage: 'url("https://img.freepik.com/fotos-premium/fondo-textura-oro-superficie-pared-brillante-dorado-retro_89245-166.jpg")',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 50% 82%, 0% 100%)'
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-yellow-500/10 mix-blend-overlay pointer-events-none"></div>
-                    <div className="relative z-10">
-                      {(() => {
-                        const Icon = IconMap[servicesData[currentSlide].icon];
-                        return Icon ? <Icon size={20} /> : null;
-                      })()}
+            {/* Services Marquee / LED Bar inside Lawyer Card */}
+            <div 
+              className="w-full shrink-0 bg-brand-red z-30 overflow-hidden flex border-t-[2px] border-gold/30 relative h-[60px] cursor-pointer"
+              onMouseEnter={(e) => { e.stopPropagation(); setIsServiceHovered(true); }}
+              onMouseLeave={(e) => { setIsServiceHovered(false); }}
+              onMouseMove={(e) => { e.stopPropagation(); handleServiceMouseMove(e); }}
+            >
+              <AnimatePresence initial={false}>
+                <motion.div 
+                  key={safeSlide}
+                  className="absolute inset-0 flex items-center justify-center gap-4"
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "-100%" }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  <div className="drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                    <div 
+                      className="w-10 h-12 text-[#050B14] flex flex-col items-center pt-2.5 relative overflow-hidden shrink-0"
+                      style={{ 
+                        backgroundImage: 'url("https://img.freepik.com/fotos-premium/fondo-textura-oro-superficie-pared-brillante-dorado-retro_89245-166.jpg")',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 50% 82%, 0% 100%)'
+                      }}
+                    >
+                      <div className="absolute inset-0 bg-yellow-500/10 mix-blend-overlay pointer-events-none"></div>
+                      <div className="relative z-10">
+                        {(() => {
+                          const Icon = IconMap[servicesData[safeSlide].icon];
+                          return Icon ? <Icon size={18} /> : null;
+                        })()}
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                {/* Content over opaque image */}
-                <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 mt-4">
-                  <h3 className="text-white font-medium text-[13px] md:text-[14px] uppercase tracking-[0.15em] font-heading drop-shadow-md">
-                    {servicesData[currentSlide].title}
-                  </h3>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Mouse-following Tooltip */}
-            <AnimatePresence>
-              {isServiceHovered && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  style={{
-                    position: "fixed",
-                    zIndex: 9999,
-                    pointerEvents: "none",
-                    left: 0,
-                    top: 0,
-                    x: serviceSpringX,
-                    y: serviceSpringY,
-                    translateX: "15px",
-                    translateY: "15px",
-                  }}
-                  className="bg-navy border border-gold/30 px-4 py-2 rounded-none text-[12px] font-bold tracking-wider uppercase text-gold shadow-xl flex items-center gap-2 whitespace-nowrap"
-                >
-                  Conoce nuestros servicios
+                  <span className="text-white font-bold uppercase tracking-[0.15em] text-[13px] drop-shadow-sm">
+                    {servicesData[safeSlide].title}
+                  </span>
                 </motion.div>
-              )}
-            </AnimatePresence>
+              </AnimatePresence>
+
+              {/* Mouse-following Tooltip for Services */}
+              <AnimatePresence>
+                {isServiceHovered && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    style={{
+                      position: "fixed",
+                      zIndex: 9999,
+                      pointerEvents: "none",
+                      left: 0,
+                      top: 0,
+                      x: serviceSpringX,
+                      y: serviceSpringY,
+                      translateX: "15px",
+                      translateY: "15px",
+                    }}
+                    className="bg-navy border border-gold/30 px-4 py-2 rounded-none text-[12px] font-bold tracking-wider uppercase text-gold shadow-xl flex items-center gap-2 whitespace-nowrap"
+                  >
+                    Conoce nuestros servicios
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
 
           <div className="absolute -bottom-4 right-12 text-navy-light font-serif text-[150px] leading-none italic font-bold select-none z-0 opacity-50">
@@ -482,17 +509,17 @@ function Hero() {
 
 function TrustStrip() {
   return (
-    <div className="bg-gradient-to-r from-[#D4AF37] via-[#E8C55A] to-[#D4AF37] border-y border-gold/50 py-5 px-[5%] overflow-hidden shadow-lg relative z-30">
+    <div className="bg-gradient-to-r from-brand-red via-[#5c0505] to-brand-red border-y border-brand-red-light py-6 px-[5%] overflow-hidden shadow-lg relative z-30">
       {/* Animación de Reflejo */}
-      <div className="absolute top-0 -left-[50%] w-[30%] h-full bg-gradient-to-r from-transparent via-white/80 to-transparent pointer-events-none animate-[shimmer_5s_infinite_linear]" />
+      <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none animate-[shimmer_7s_infinite_linear]" />
       
-      <div className="max-w-7xl mx-auto w-full flex flex-wrap justify-center md:justify-between items-center gap-6 relative z-10">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-2 lg:flex lg:justify-between items-center gap-y-6 gap-x-4 relative z-10">
         {trustStripItems.map((item, i) => {
           const Icon = IconMap[item.icon] || CheckCircle2;
           return (
-            <div key={i} className="flex items-center gap-3 text-[#0A162B] font-black">
-              <Icon className="w-5 h-5 text-[#0A162B]" />
-              <span className="text-[12px] md:text-[14px] tracking-wider uppercase">{item.text}</span>
+            <div key={i} className="flex flex-col md:flex-row items-center justify-center lg:justify-center gap-2 md:gap-3 text-white font-black text-center md:text-left">
+              <Icon className="w-6 h-6 md:w-5 md:h-5 shrink-0 text-white" />
+              <span className="text-[10px] sm:text-[12px] md:text-[14px] tracking-wider uppercase leading-tight">{item.text}</span>
             </div>
           );
         })}
@@ -526,7 +553,7 @@ function About() {
           
           <ScrollAnimation variant="fade-up" className="w-full">
             <div className="w-full flex flex-col items-center">
-              <div className="bg-navy text-white w-full max-w-lg py-4 mb-8">
+              <div className="bg-navy text-white w-full max-w-lg py-4 mb-8 border-t-[3px] border-t-brand-red shadow-sm">
                 <h2 className="tracking-[0.2em] uppercase text-xs md:text-[13px] font-semibold px-4">
                   Compromiso y Excelencia Legal
                 </h2>
@@ -540,7 +567,7 @@ function About() {
                 href={`https://wa.me/${siteConfig.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-navy text-white hover:bg-[#1a2c4e] px-14 py-4 font-bold text-[14px] uppercase tracking-widest transition-colors border-t-[4px] border-gold mb-4 shadow-lg"
+                className="w-full sm:w-auto text-center bg-navy text-white hover:bg-[#1a2c4e] px-14 py-4 font-bold text-[14px] uppercase tracking-widest transition-colors border-t-[3px] border-t-brand-red hover:border-t-gold mb-4 shadow-lg"
               >
                 Consultar Hoy
               </a>
@@ -653,8 +680,8 @@ function Services() {
                               </span>
                             ))}
                           </div>
-                          <Button className="w-full bg-navy text-white hover:bg-gold hover:text-navy font-bold uppercase tracking-widest text-[11px] h-11 transition-all duration-300">
-                            Aprender más <ArrowRight className="w-3.5 h-3.5 ml-2" />
+                          <Button className="w-full bg-navy text-white hover:bg-gold hover:text-navy font-bold uppercase tracking-widest text-[11px] h-11 transition-all duration-300 border-t-[3px] border-t-brand-red">
+                            Conocer más <ArrowRight className="w-3.5 h-3.5 ml-2" />
                           </Button>
                         </div>
                       </div>
@@ -674,7 +701,7 @@ function Services() {
                 <div className="bg-white rounded-none overflow-hidden w-full relative border border-gray-200 md:h-[550px]">
                   <AnimatePresence mode="wait">
                     {(() => {
-                      const service = servicesData[selectedService];
+                      const service = servicesData[selectedService] || servicesData[0];
                       const Icon = IconMap[service.icon];
                       return (
                         <motion.div 
@@ -689,7 +716,7 @@ function Services() {
                             <Image src={service.image} alt={service.title} fill className="object-cover" />
                           </div>
                           
-                          <div className="p-8 md:p-12 flex flex-col flex-1 relative overflow-y-auto">
+                          <div className="p-8 md:p-12 flex flex-col flex-1 relative h-full overflow-hidden">
                             <div className="absolute top-0 right-8 z-20 hidden md:block drop-shadow-[0_5px_10px_rgba(0,0,0,0.35)]">
                               <div 
                                 className="w-16 h-20 text-[#050B14] flex flex-col items-center pt-4 relative overflow-hidden"
@@ -714,8 +741,7 @@ function Services() {
                             <p className="text-gray-600 text-base font-semibold mb-6">
                               {service.description}
                             </p>
-                            
-                            <div className="text-gray-500 text-[15px] leading-relaxed mb-8 whitespace-pre-line">
+                            <div className="text-gray-500 text-[15px] leading-relaxed mb-4 whitespace-pre-line overflow-y-auto flex-1 pr-4 custom-scrollbar">
                               {/* @ts-ignore */}
                               {service.details}
                             </div>
@@ -793,6 +819,7 @@ function WhyUs() {
               >
                 {item.number}
               </span>
+              <div className="w-10 h-[3px] bg-brand-red mb-5 relative z-10 transition-all duration-500 group-hover:w-16"></div>
               <h3 className="text-xl font-bold mb-4 relative z-10">{item.title}</h3>
               <p className="text-white/60 leading-relaxed relative z-10">{item.description}</p>
             </StaggerItem>
@@ -870,7 +897,7 @@ function Coverage() {
             <ScrollAnimation variant="fade-left" className="h-full">
                <div className="relative w-full h-[350px] sm:h-[500px] z-10 transition-transform duration-700 hover:scale-105">
                   <Image 
-                     src="/map.png" 
+                     src="/map_bg.webp" 
                      alt="Mapa de Cobertura Ecuador" 
                      fill 
                      className="object-contain object-top drop-shadow-[0_10px_25px_rgba(0,0,0,0.05)] mix-blend-multiply"
@@ -892,13 +919,13 @@ function Coverage() {
                   />
                   
                   {/* Floating Info Card */}
-                  <div className="absolute left-4 top-4 sm:left-8 sm:top-8 z-20 bg-white p-6 rounded-none shadow-[0_10px_40px_rgba(0,0,0,0.15)] max-w-[340px] transition-transform duration-500 group-hover:-translate-y-2 border border-gray-100">
+                  <div className="absolute left-4 right-4 sm:right-auto top-4 sm:left-8 sm:top-8 z-20 bg-white p-4 sm:p-6 rounded-none shadow-[0_10px_40px_rgba(0,0,0,0.15)] max-w-none sm:max-w-[340px] transition-transform duration-500 group-hover:-translate-y-2 border border-gray-100 border-l-[4px] border-l-brand-red">
                      <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 rounded-none bg-red-500/10 flex items-center justify-center shrink-0">
-                           <MapPin className="w-6 h-6 text-red-500" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-none bg-brand-red/10 flex items-center justify-center shrink-0">
+                           <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-brand-red" />
                         </div>
                         <div>
-                           <h4 className="font-bold text-navy text-[15px] leading-tight mb-1.5 pr-2">
+                           <h4 className="font-bold text-navy text-[14px] sm:text-[15px] leading-tight mb-1.5 pr-2">
                               Corporativo Jurídico Paredes & Asociados
                            </h4>
                            <div className="flex items-center gap-1.5 text-yellow-500 text-[12px] font-bold">
@@ -906,14 +933,14 @@ function Coverage() {
                            </div>
                         </div>
                      </div>
-                     <p className="text-gray-500 text-[13px] mb-5 leading-relaxed font-medium">
+                     <p className="text-gray-500 text-[12px] sm:text-[13px] mb-5 leading-relaxed font-medium">
                         Atención en Tulcán, Ibarra y Quito. (Dirección referencial).
                      </p>
                      <a
                        href={`https://wa.me/${siteConfig.whatsappNumber}`}
                        target="_blank"
                        rel="noopener noreferrer"
-                       className="block w-full py-3 rounded-none border-2 border-blue-600 text-blue-600 font-bold text-center text-[13px] uppercase tracking-wider hover:bg-blue-50 transition-colors"
+                       className="block w-full py-2.5 sm:py-3 rounded-none border-2 border-blue-600 text-blue-600 font-bold text-center text-[13px] uppercase tracking-wider hover:bg-blue-50 transition-colors"
                      >
                         Cómo llegar
                      </a>
@@ -921,7 +948,7 @@ function Coverage() {
                   
                   {/* Center Map Pin */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 drop-shadow-2xl">
-                     <MapPin className="w-12 h-12 text-red-500 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]" fill="currentColor" />
+                     <MapPin className="w-12 h-12 text-brand-red drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]" fill="currentColor" />
                   </div>
                   
                   {/* Overlay text for placeholder clarification */}
@@ -947,7 +974,7 @@ function Faq() {
           <Accordion className="w-full">
             {faqData.map((faq, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="border-border">
-                <AccordionTrigger className="text-left font-bold text-navy hover:text-gold hover:no-underline py-6 text-lg md:text-xl">
+                <AccordionTrigger className="text-left font-bold text-navy hover:text-brand-red hover:no-underline py-6 text-lg md:text-xl transition-colors">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed pb-6 text-base md:text-lg">
@@ -1021,7 +1048,7 @@ function Contact() {
                e.preventDefault();
                window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=Hola,%20quisiera%20agendar%20una%20consulta`, '_blank');
              }}>
-               <div className="grid grid-cols-2 gap-4">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                  <div className="space-y-2">
                    <label className="text-sm font-semibold">Nombre</label>
                    <Input placeholder="Tu nombre" className="bg-off-white border-border/50" />
@@ -1072,7 +1099,7 @@ function CTA() {
           href={`https://wa.me/${siteConfig.whatsappNumber}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-navy text-white hover:bg-navy-light px-8 py-4 rounded-none font-bold uppercase tracking-wider text-sm transition-all hover:scale-105 shadow-xl"
+          className="inline-flex items-center gap-3 bg-navy text-white hover:bg-navy-light px-8 py-4 rounded-none font-bold uppercase tracking-wider text-sm transition-all hover:scale-105 shadow-xl border-t-[3px] border-t-brand-red"
         >
           <FaWhatsapp className="w-5 h-5 text-green-400" /> {ctaBannerData.cta}
         </a>
@@ -1083,10 +1110,10 @@ function CTA() {
 
 function Footer() {
   return (
-    <footer className="bg-navy-dark pt-20 pb-10 px-[5%] border-t border-gold/10 relative overflow-hidden">
+    <footer className="bg-navy-dark pt-20 pb-10 px-[5%] border-t-[4px] border-brand-red relative overflow-hidden">
       {/* Decorative subtle background pattern/glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-brand-red/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -1094,7 +1121,7 @@ function Footer() {
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex flex-col items-start group">
               <div className="relative w-56 h-24 mb-3 group-hover:scale-105 transition-transform duration-500">
-                <Image src="/logo_transparent.webp" alt="Paredes & Asociados Logo" fill className="object-contain" />
+                <Image src="/logo_transparent.webp" alt="Paredes & Asociados Logo" fill className="object-contain object-left" />
               </div>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed">
