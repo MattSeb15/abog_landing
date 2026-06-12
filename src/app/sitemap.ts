@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://corporativojuridicopya.com',
+      url: 'https://www.paredesyasociados.ec',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,

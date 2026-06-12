@@ -16,7 +16,7 @@ const outfitHeading = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://corporativojuridicopya.com"),
+  metadataBase: new URL("https://www.paredesyasociados.ec"),
   title: "Abogados en Ecuador: Familia, Civil, Penal y Laboral | Paredes & Asociados",
   description:
     "Estudio jurídico experto en divorcio mutuo consentimiento, pensión de alimentos, despido intempestivo, accidentes de tránsito y sumarios administrativos. Abogado en Quito, Ibarra y Tulcán.",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Corporativo Jurídico Paredes & Asociados | Abogados en Ecuador",
     description: "Estudio jurídico experto en divorcio mutuo consentimiento, pensión de alimentos, despido intempestivo, accidentes de tránsito y sumarios administrativos. Abogado en Quito, Ibarra y Tulcán.",
-    url: "https://corporativojuridicopya.com",
+    url: "https://www.paredesyasociados.ec",
     siteName: "Paredes & Asociados",
     locale: "es_EC",
     type: "website",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     description: "Expertos en divorcio, alimentos, despidos, y accidentes de tránsito en Quito, Ibarra y Tulcán.",
   },
   alternates: {
-    canonical: "https://corporativojuridicopya.com"
+    canonical: "https://www.paredesyasociados.ec"
   }
 };
 
@@ -50,9 +50,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LegalService",
   "name": "Corporativo Jurídico Paredes & Asociados",
-  "image": "https://corporativojuridicopya.com/logo_transparent.webp",
-  "@id": "https://corporativojuridicopya.com",
-  "url": "https://corporativojuridicopya.com",
+  "image": "https://www.paredesyasociados.ec/logo_transparent.webp",
+  "@id": "https://www.paredesyasociados.ec",
+  "url": "https://www.paredesyasociados.ec",
   "telephone": "+593981324778",
   "address": [
     {

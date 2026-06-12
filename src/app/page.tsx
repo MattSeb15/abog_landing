@@ -26,7 +26,7 @@ import {
   Globe,
   ArrowDown
 } from "lucide-react";
-import { FaFacebook, FaXTwitter, FaLinkedin, FaEnvelope, FaWhatsapp, FaUsers, FaBuildingColumns, FaScaleBalanced, FaBriefcase, FaClipboardList, FaCar, FaTiktok, FaInstagram, FaStar, FaClock, FaShield, FaDesktop, FaGlobe } from "react-icons/fa6";
+import { FaFacebook, FaXTwitter, FaEnvelope, FaWhatsapp, FaUsers, FaBuildingColumns, FaScaleBalanced, FaBriefcase, FaClipboardList, FaCar, FaTiktok, FaInstagram, FaStar, FaClock, FaShield, FaDesktop, FaGlobe } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -169,7 +169,7 @@ function Navbar() {
         <div className="flex items-center gap-8">
           <div className="flex gap-4">
             {socialLinks.map((social, i) => {
-              const Icon = social.icon === "TikTok" ? FaTiktok : social.icon === "Instagram" ? FaInstagram : social.icon === "Facebook" ? FaFacebook : FaLinkedin;
+              const Icon = social.icon === "TikTok" ? FaTiktok : social.icon === "Instagram" ? FaInstagram : FaFacebook;
               return (
                 <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
                   <Icon className="w-3.5 h-3.5" />
@@ -1031,7 +1031,7 @@ function Contact() {
            
            <div className="flex gap-4">
              {socialLinks.map((social, i) => {
-               const Icon = social.icon === "TikTok" ? FaTiktok : social.icon === "Instagram" ? FaInstagram : social.icon === "Facebook" ? FaFacebook : FaLinkedin;
+               const Icon = social.icon === "TikTok" ? FaTiktok : social.icon === "Instagram" ? FaInstagram : FaFacebook;
                return (
                  <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 rounded-none flex items-center justify-center hover:bg-gold hover:text-navy transition-colors">
                    <Icon className="w-4 h-4" />
@@ -1133,7 +1133,6 @@ function Footer() {
                   TikTok: FaTiktok,
                   Instagram: FaInstagram,
                   Facebook: FaFacebook,
-                  LinkedIn: FaLinkedin,
                 };
                 const Icon = iconMap[social.name] || FaFacebook;
                 return (

@@ -9,7 +9,7 @@ export const siteConfig = {
   shortName: "Paredes & Asociados",
   description:
     "Estudio jurídico especializado en Derecho de Familia, Civil, Penal y Laboral. Más de 10 años de experiencia. Atendemos en Tulcán, Ibarra, Quito y a nivel nacional.",
-  url: "https://corporativojuridicopya.com",
+  url: "https://www.paredesyasociados.ec",
   whatsappNumber: "593981324778",
   whatsappDisplay: "0981 324 778",
   email: "jereleo1008@gmail.com",
@@ -223,9 +223,8 @@ export const contactData = {
 
 export const socialLinks = [
   { name: "TikTok", url: "https://www.tiktok.com/@corporativojuridicopya", icon: "TikTok" },
-  { name: "Instagram", url: "#", icon: "Instagram" },
-  { name: "Facebook", url: "#", icon: "Facebook" },
-  { name: "LinkedIn", url: "#", icon: "LinkedIn" },
+  { name: "Instagram", url: "https://www.instagram.com/juridicoparedes/", icon: "Instagram" },
+  { name: "Facebook", url: "https://www.facebook.com/corpjuridicoparades/", icon: "Facebook" },
 ];
 
 export const navLinks = [
