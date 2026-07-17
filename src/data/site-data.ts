@@ -224,7 +224,7 @@ export const contactData = {
 export const socialLinks = [
   { name: "TikTok", url: "https://www.tiktok.com/@corporativojuridicopya", icon: "TikTok" },
   { name: "Instagram", url: "https://www.instagram.com/juridicoparedes/", icon: "Instagram" },
-  { name: "Facebook", url: "https://www.facebook.com/corpjuridicoparades/", icon: "Facebook" },
+  { name: "Facebook", url: "https://www.facebook.com/profile.php?id=61591729720669", icon: "Facebook" },
 ];
 
 export const navLinks = [
