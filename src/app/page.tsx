@@ -337,7 +337,7 @@ function Hero() {
           </motion.h1>
           
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5 }} className="text-white/70 text-[18px] max-w-[550px] leading-relaxed mb-10 font-medium">
-            Somos un estudio jurídico serio y confiable especializado en <TooltipLink href="#servicios" tooltipText="Ir a nuestros servicios">Derecho de Familia, Civil, Penal y Laboral</TooltipLink>. Atención personalizada con resultados reales en todo el <strong className="text-white font-bold">Ecuador</strong>.
+            Abogados especialistas en <TooltipLink href="#servicios" tooltipText="Ir a nuestros servicios">Divorcios, Pensión de Alimentos, Violencia Intrafamiliar, Violencia Psicológica, Lesiones, Legalización de Tierras y Sumarios Administrativos</TooltipLink>. Defensa técnica con resultados reales en <strong className="text-white font-bold">Quito e Ibarra</strong>.
           </motion.p>
           
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 w-full sm:w-auto">

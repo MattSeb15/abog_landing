@@ -8,7 +8,7 @@ export const siteConfig = {
   name: "Corporativo Jurídico Paredes & Asociados",
   shortName: "Paredes & Asociados",
   description:
-    "Estudio jurídico especializado en Derecho de Familia, Civil, Penal y Laboral. Más de 10 años de experiencia. Atendemos en Tulcán, Ibarra, Quito y a nivel nacional.",
+    "Estudio jurídico especializado en divorcios, pensión de alimentos, violencia intrafamiliar, legalización de tierras y sumarios administrativos. Más de 10 años de experiencia en Quito, Ibarra, Tulcán y a nivel nacional.",
   url: "https://www.paredesyasociados.ec",
   whatsappNumber: "593981324778",
   whatsappDisplay: "0981 324 778",
@@ -22,7 +22,7 @@ export const heroData = {
   titleLine1: "Protegemos lo que",
   titleLine2: "más te importa.",
   description:
-    "Somos un estudio jurídico serio y confiable especializado en Derecho de Familia, Civil, Penal y Laboral. Atención personalizada con resultados reales en todo el Ecuador.",
+    "Abogados especialistas en divorcios, pensión de alimentos, violencia intrafamiliar, violencia psicológica, lesiones, legalización de tierras y sumarios administrativos en Quito e Ibarra. Atención personalizada con resultados reales.",
   ctaPrimary: "Escríbenos al WhatsApp",
   ctaSecondary: "Ver servicios",
   backgroundImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070&auto=format&fit=crop",
@@ -54,19 +54,23 @@ export const servicesData: ServiceItem[] = [
     icon: "Users",
     title: "Derecho de Familia",
     description:
-      "Divorcios contenciosos y voluntarios, pensiones alimenticias, liquidación de sociedad conyugal, custodia de menores y régimen de visitas.",
-    details: "En nuestra área de Derecho de Familia en Ecuador, brindamos un acompañamiento humano y empático, protegiendo a tu familia y patrimonio. Entendemos que estos procesos pueden ser emocionalmente desgastantes, por lo que nos enfocamos en resoluciones rápidas y justas.\n\n" +
-      "• Pensión de Alimentos (Cobrar, Fijar, Aumentar o Disminuir): Es un derecho irrenunciable de los hijos (menores o mayores en estudio). Se calcula según ingresos del alimentante, necesidades del alimentado y la tabla de pensiones mínimas. Puedes demandar aumento si cambian las condiciones económicas; el incumplimiento genera embargo o prisión.\n\n" +
-      "• Divorcio (Mutuo Consentimiento o Causales): El divorcio por mutuo consentimiento es el más rápido, económico y recomendado (notarial o judicial). Si tu cónyuge está en el extranjero, se cita por edictos o consulado sin que deba regresar. Además, la custodia compartida es cada vez más aceptada para el bienestar del menor.\n\n" +
-      "• Liquidación de Sociedad Conyugal y Partición de Bienes: Durante el matrimonio, los bienes adquiridos son gananciales. Al divorciarse, es vital el inventario detallado y la partición. Los bienes privativos (herencias/donaciones) no entran. No firmes acuerdos privados sin elevarlos a escritura pública, pueden ser impugnados.\n\n" +
-      "Si buscas un abogado especializado en derecho de familia (Pensión de alimentos, divorcio express, liquidación de bienes) en Quito, Ibarra o Tulcán, agenda una consulta. Evita errores comunes que afecten el futuro de tus hijos y tu patrimonio.",
+      "Especialistas en divorcios en Quito e Ibarra, fijación y aumento de pensión de alimentos, custodia de menores y liquidación de sociedad conyugal.",
+    details:
+      "En nuestra área de Derecho de Familia en Quito e Ibarra, brindamos un patrocinio legal estratégico, empático y humano, enfocado en proteger el bienestar de tus hijos y la seguridad de tu patrimonio.\n\n" +
+      "• Divorcios en Quito e Ibarra (Mutuo Consentimiento y Contencioso): Tramitamos divorcios express por mutuo acuerdo tanto en notarías como en sedes judiciales, y patrocinamos demandas contenciosas por causales del Código Civil. Si tu cónyuge se encuentra en el exterior, tramitamos el divorcio sin que deba retornar a Ecuador.\n\n" +
+      "• Pensión de Alimentos (Fijación, Aumento, Rebaja y Extinción): La pensión de alimentos es un derecho prioritario e irrenunciable. Calculamos valores exactos según la tabla de pensiones del SUPA y los ingresos del alimentante. Patrocinamos demandas de fijación, incidentes de aumento o rebaja de pensión, liquidaciones de mora y apremios personales.\n\n" +
+      "• Custodia, Tenencia y Régimen de Visitas: Defendemos judicialmente el interés superior del menor para lograr resoluciones de tenencia compartida o exclusiva y regímenes de visitas justos y ordenados.\n\n" +
+      "• Liquidación de Sociedad Conyugal y Partición de Bienes: Realizamos el inventario y partición equitativa de bienes gananciales tras el divorcio, evitando perjuicios patrimoniales y asegurando tus derechos mediante escritura pública o sentencia judicial.\n\n" +
+      "Si requieres un abogado especialista en divorcios y pensión de alimentos en Quito, Ibarra o Tulcán, agenda tu consulta legal confidencial.",
     tags: [
+      "Divorcios en Quito e Ibarra",
       "Pensión de alimentos Ecuador",
       "Divorcio mutuo consentimiento",
-      "Divorcio express",
-      "Liquidación de sociedad conyugal",
-      "Abogado familia Quito",
-      "Abogado divorcio Tulcán"
+      "Divorcio contencioso",
+      "Aumento de pensión alimenticia",
+      "Abogado de familia Quito",
+      "Abogado de familia Ibarra",
+      "Liquidación de sociedad conyugal"
     ],
     image: "/derechos/family.avif",
   },
@@ -74,19 +78,23 @@ export const servicesData: ServiceItem[] = [
     icon: "Landmark",
     title: "Derecho Civil",
     description:
-      "Sucesiones y testamentos, legalización de bienes inmuebles, prescripción adquisitiva de dominio y contratos civiles.",
-        details: "Proteger tu propiedad y tus bienes es fundamental. Nuestro equipo civil te ofrece soluciones para bienes, sucesiones y propiedad, manejando desde contratos blindados hasta saneamiento de tierras.\n\n" +
-      "• Legalización de Bienes Inmuebles: Inscribe tu propiedad en el Registro de la Propiedad para tener seguridad jurídica y evitar problemas con herencias o ventas.\n\n" +
-      "• Prescripción Adquisitiva de Dominio: Adquiere dominio legal por posesión continua, pacífica y pública (10-15 años). Ideal para regularizar terrenos ocupados por años reuniendo pruebas (testigos, recibos, impuestos) mediante juicio ordinario.\n\n" +
-      "• Sucesiones y Posesión Efectiva: Declara herederos y realiza la posesión efectiva pronto para evitar que el Estado reclame bienes. Gestionamos inventarios y partición de bienes hereditarios.\n\n" +
-      "• Elaboración de Testamentos: Otórgalo ante notario para distribuir tus bienes claramente y evitar conflictos familiares.\n\n" +
-      "Expertos en prescripción adquisitiva de dominio y sucesiones en Ecuador. Regulariza tu propiedad y protege tu herencia con Paredes & Asociados.",
+      "Expertos en legalización de tierras, prescripción adquisitiva de dominio, posesión efectiva, sucesiones y regularización de bienes inmuebles en Quito e Ibarra.",
+    details:
+      "Proteger tu propiedad y regularizar tus bienes raíces es vital para tu seguridad jurídica y familiar. Nuestro equipo civil en Quito e Ibarra resuelve con rigor técnico controversias de dominio, tierras y herencias.\n\n" +
+      "• Legalización de Tierras y Regularización de Bienes Inmuebles: Gestionamos trámites municipales y notariales de regularización de predios urbanos y rústicos, saneamiento de linderos e inscripción en el Registro de la Propiedad en Quito e Ibarra.\n\n" +
+      "• Prescripción Adquisitiva de Dominio (Extraordinaria y Ordinaria): Si has poseído un terreno, casa o lote de manera pacífica, continua y pública por más de 15 años sin escrituras, demandamos la prescripción adquisitiva de dominio para que obtengas tu título legal definitivo de propiedad.\n\n" +
+      "• Sucesiones, Posesión Efectiva y Testamentos: Declaratoria formal de herederos, inventario solemne y partición judicial o voluntaria de bienes hereditarios, resolviendo controversias entre coherederos.\n\n" +
+      "• Contratos Civiles Blindados: Elaboración y revisión técnica de contratos de compraventa, promesas de compraventa, hipotecas y arrendamientos con plena validez jurídica.\n\n" +
+      "Asesórate con abogados expertos en legalización de tierras y prescripción adquisitiva de dominio en Quito e Ibarra.",
     tags: [
-      "Legalización de bienes inmuebles",
+      "Legalización de tierras Quito e Ibarra",
       "Prescripción adquisitiva de dominio",
-      "Sucesión por causa de muerte",
-      "Testamento notarial",
+      "Juicio de prescripción extraordinaria",
+      "Sucesiones y herencias",
+      "Posesión efectiva Ecuador",
       "Partición de bienes",
+      "Abogado civil Quito",
+      "Abogado civil Ibarra"
     ],
     image: "/derechos/civil.avif",
   },
@@ -94,19 +102,22 @@ export const servicesData: ServiceItem[] = [
     icon: "Scale",
     title: "Derecho Penal",
     description:
-      "Defensa en accidentes de tránsito, violencia intrafamiliar, contravenciones y representación en procesos penales complejos.",
-        details: "En materia penal, el tiempo es tu mayor aliado. Asumimos tu representación tanto si eres víctima como si enfrentas una acusación, con estrategias de defensa sólidas y confidenciales.\n\n" +
-      "• Violencia Intrafamiliar y de Género: Toda acción (física, psicológica, verbal o económica) que cause daño a la mujer o núcleo familiar es un delito, no un problema privado. Denuncia de inmediato; la ley protege a las víctimas con medidas cautelares (alejamiento, custodia) y reparación integral. No esperes a que escale.\n\n" +
-      "• Contravenciones y Delitos Penales: Muchas situaciones pueden resolverse oportunamente con el principio de oportunidad o conciliación, buscando preservar tu libertad y buen nombre.\n\n" +
-      "• Tránsito y Accidentes: En delitos culposos por accidentes de tránsito aplica reducción de pena. No admitas responsabilidad sin asesoría legal; documenta todo (fotos, testigos) y solicita reparación.\n\n" +
-      "• Liberación de Vehículos: Procede cuando no hay flagrancia o tras el pago de multas. Actuamos rápido para evitar depreciación o trámites burocráticos engorrosos.\n\n" +
-      "Defensa penal especializada en accidentes de tránsito y violencia familiar en Ecuador (Quito, Ibarra, Tulcán). Recupera tu libertad y protege tus derechos.",
+      "Defensa técnica penal en violencia intrafamiliar, violencia psicológica, contravenciones y delitos de lesiones, y medidas de protección en Quito e Ibarra.",
+    details:
+      "En el ámbito penal, actuar con rapidez y solvencia técnica es decisivo para garantizar tu libertad y buen nombre. Patrocinamos tanto la defensa técnica de personas procesadas como la acusación particular de víctimas ante fiscalías y tribunales de Quito e Ibarra.\n\n" +
+      "• Violencia Intrafamiliar: Patrocinio legal especializado ante denuncias por agresiones físicas o verbales en el núcleo familiar. Tramitamos o contradecimos boletas de auxilio y medidas de protección judiciales inmediatas para asegurar tu integridad o ejercer tu legítima defensa.\n\n" +
+      "• Violencia Psicológica: El maltrato emocional, intimidación o humillaciones constituyen delitos tipificados en el COIP. Contamos con amplia experiencia en evaluación y contradicción de peritajes psicológicos y pruebas testimoniales.\n\n" +
+      "• Delitos y Contravenciones por Lesiones: Defensa y acusación técnica en juicios por lesiones físicas y accidentes, determinando grados de incapacidad médico-legal y exigiendo la reparación integral de daños o logrando ratificaciones de inocencia.\n\n" +
+      "• Accidentes de Tránsito y Flagrancia: Asistencia inmediata en audiencias de flagrancia penal, mediación en tránsito y acuerdos reparatorios oportunos.\n\n" +
+      "Defensa penal rigurosa y confidencial en violencia intrafamiliar, violencia psicológica y lesiones en Quito, Ibarra y Tulcán.",
     tags: [
-      "Violencia intrafamiliar",
+      "Violencia intrafamiliar Quito",
+      "Violencia psicológica Ecuador",
+      "Abogado penal lesiones Ecuador",
+      "Medidas de protección y boleta de auxilio",
       "Abogado penal Quito",
-      "Accidentes de tránsito Ecuador",
-      "Liberación de vehículos",
-      "Contravenciones penales",
+      "Abogado penal Ibarra",
+      "Defensa penal COIP"
     ],
     image: "/derechos/penal.avif",
   },
@@ -114,15 +125,21 @@ export const servicesData: ServiceItem[] = [
     icon: "ClipboardList",
     title: "Sumarios Administrativos",
     description:
-      "Asesoría y defensa en procesos disciplinarios de servidores públicos ante instituciones del Estado ecuatoriano.",
-        details: "Los servidores públicos enfrentan constantes riesgos de sanciones o destituciones. El sumario administrativo es el procedimiento oral (LOSEP y MDT) para investigar faltas graves, garantizando tu derecho a la defensa y debido proceso.\n\n" +
-      "• Proceso de Defensa: Al recibir notificación, intervenimos presentando descargos por escrito dentro del plazo (generalmente 10 días). Solicitamos pruebas, testigos y audiencia, e impugnamos pruebas irregulares o sanciones (suspensión/destitución).\n\n" +
-      "• Principios Clave: Nos basamos en la presunción de inocencia, igualdad y motivación de resoluciones para proteger tu estabilidad laboral ante entidades gubernamentales o municipales.\n\n" +
-      "No enfrentes solo un sumario administrativo, un abogado experto puede lograr su archivo o sanciones menores. ¿Te notificaron? Defendemos tus derechos como servidor público en todo el Ecuador.",
+      "Asesoría y defensa técnica para servidores públicos ante sumarios administrativos, procedimientos disciplinarios y destituciones en Quito e Ibarra.",
+    details:
+      "Los funcionarios y empleados del sector público están expuestos a investigaciones y sumarios disciplinarios que comprometen su estabilidad laboral y carrera profesional. Brindamos una defensa jurídica sólida bajo la LOSEP y regulaciones del Ministerio del Trabajo.\n\n" +
+      "• Contestación Técnica de Sumarios: Respondemos el auto inicial de llamamiento a sumario administrativo dentro del término legal (10 días), adjuntando descargos, pruebas documentales y pericias pertinentes.\n\n" +
+      "• Audiencias Orales Disciplinarias: Ejercemos tu defensa técnica presencial o telemática en audiencias orales ante comisiones disciplinarias y direcciones de talento humano en Quito e Ibarra, velando por el debido proceso y la presunción de inocencia.\n\n" +
+      "• Prevención de Destituciones e Impugnaciones: Planteamos recursos en sede administrativa para lograr el archivo de la causa o sanciones leves que no generen inhabilidad laboral.\n\n" +
+      "• Acciones Constitucionales y Contencioso Administrativo: Activamos acciones de protección por vulneración de derechos constitucionales y demandas ante el Tribunal Distrital de lo Contencioso Administrativo.\n\n" +
+      "Defensa técnica especializada en sumarios administrativos en Quito e Ibarra. Protege tu estabilidad laboral como servidor público.",
     tags: [
-      "Sumario administrativo Ecuador",
-      "Defensa servidor público",
-      "Procedimiento disciplinario LOSEP",
+      "Sumarios administrativos Ecuador",
+      "Defensa servidor público Quito Ibarra",
+      "Sumario disciplinario LOSEP",
+      "Abogado sumarios administrativos",
+      "Destitución servidor público",
+      "Impugnación contencioso administrativo"
     ],
     image: "/derechos/suministros.avif",
   },
@@ -130,27 +147,35 @@ export const servicesData: ServiceItem[] = [
     icon: "Car",
     title: "Trámites Administrativos",
     description:
-      "Liberación de vehículos retenidos, trámites ante el ANT y gestiones administrativas ante entidades públicas y privadas.",
-    details: "Evita la burocracia paralizante. Nos encargamos de gestionar de manera ágil trámites que pueden ser dolores de cabeza: desde la liberación rápida de vehículos retenidos por siniestros o infracciones, hasta impugnaciones de multas de tránsito. Hacemos el trabajo pesado por ti para que no pierdas tiempo ni dinero en procesos enredados.",
-    tags: ["Vehículos", "ANT", "Trámites"],
+      "Liberación ágil de vehículos retenidos, impugnaciones de citaciones de tránsito ante la ANT y gestiones administrativas en Quito e Ibarra.",
+    details:
+      "Evita demoras burocráticas innecesarias. Gestionamos con prontitud la liberación legal de automotores retenidos por accidentes o contravenciones, impugnaciones de multas ante la Agencia Nacional de Tránsito (ANT) y trámites administrativos ante entidades públicas y municipales en Quito, Ibarra y Tulcán.",
+    tags: [
+      "Liberación de vehículos retenidos",
+      "Impugnación multas ANT",
+      "Trámites de tránsito Ecuador",
+      "Gestiones administrativas Quito Ibarra"
+    ],
     image: "/derechos/tramites.avif",
   },
   {
     icon: "Briefcase",
     title: "Derecho Laboral",
     description:
-      "Cobro de haberes, despidos intempestivos, liquidaciones laborales y defensa de los derechos de trabajadores y empleadores.",
-        details: "Asesoramos tanto a empresas como a trabajadores para el cumplimiento de las obligaciones mutuas (contrato, seguridad social, pago oportuno). La prevención es la mejor inversión laboral.\n\n" +
-      "• Despido Intempestivo e Ineficaz: El empleador debe pagar indemnización según los años de servicio. No firmes actas de finiquito sin revisión legal, puedes demandar diferencias. Además, defendemos despidos ineficaces (embarazo, dirigentes sindicales, discriminación).\n\n" +
-      "• Acción por Acoso Laboral: Un solo acto grave puede configurar hostigamiento. Documenta las pruebas y denuncia para exigir indemnización y reparación por daño moral.\n\n" +
-      "• Cobro de Haberes e Impugnación de Finiquitos: Tienes 3 años para reclamar valores pendientes. Revisamos el cálculo correcto de décimos, vacaciones y fondos de reserva.\n\n" +
-      "Abogados laborales en Ecuador expertos en despidos, cobro de haberes y acoso. Protege tu fuente de ingresos o tu empresa.",
+      "Patrocinio legal en despidos intempestivos, cobro de liquidaciones, acoso laboral y actas de finiquito para trabajadores y empleadores en Quito e Ibarra.",
+    details:
+      "Asesoramos a trabajadores y empresas en la correcta aplicación de la legislación laboral ecuatoriana, garantizando resoluciones justas y acuerdos preventivos.\n\n" +
+      "• Despido Intempestivo e Ineficaz: Cálculo exacto de indemnizaciones legales por despido intempestivo, desahucio y tutela en despidos ineficaces (embarazo, lactancia o discriminación).\n\n" +
+      "• Cobro de Haberes e Impugnación de Finiquitos: Liquidación de décimos, vacaciones y fondos de reserva no cancelados. Tienes hasta 3 años para demandar valores pendientes.\n\n" +
+      "• Acoso Laboral y Mediación: Asesoría y acompañamiento ante denuncias en el Ministerio del Trabajo y resolución de controversias en centros de mediación acreditados.\n\n" +
+      "Abogados laborales en Quito e Ibarra comprometidos con la defensa de tus derechos laborales.",
     tags: [
       "Despido intempestivo Ecuador",
-      "Acoso laboral",
-      "Cobro de haberes",
-      "Impugnación finiquito",
-      "Abogado laboral Quito"
+      "Abogado laboral Quito",
+      "Abogado laboral Ibarra",
+      "Cobro de liquidaciones laborales",
+      "Acoso laboral Ecuador",
+      "Acta de finiquito"
     ],
     image: "/derechos/laboral.avif",
   },
@@ -159,15 +184,15 @@ export const servicesData: ServiceItem[] = [
 export const aboutData = {
   name: "Abg. Andersson Fernando Paredes Chamorro",
   title: "Abogado & Mediador",
-  image: "/only_abog.png",
+  image: "/abogado_paredes.jpg",
   credentials: [
     {
       title: "Universidad Técnica Particular de Loja",
-      description: "Abogado y Mediador — Título profesional con aval del Consejo de la Judicatura",
+      description: "Abogado y Mediador — Título profesional con aval del Consejo de la Judicatura (Matrícula: 04-2018-13)",
     },
     {
       title: "Diplomado en Psicología y Programación Neurolingüística",
-      description: "Formación complementaria orientada a la gestión de conflictos familiares",
+      description: "Formación complementaria orientada a la gestión de conflictos familiares y penales",
     },
     {
       title: "Asistente de Juez — Unidad de Familia, Niñez y Adolescencia",
@@ -201,11 +226,36 @@ export const coverageData: CityItem[] = [
 export interface FaqItem { question: string; answer: string; }
 
 export const faqData: FaqItem[] = [
-  { question: "¿Cuánto cuesta contratar los servicios del estudio?", answer: "Los honorarios varían según el tipo de caso, su complejidad y la instancia judicial. Lo más importante es que el valor acordado al inicio es el valor final — sin cobros sorpresa ni adicionales. Contáctanos para una evaluación sin compromiso." },
-  { question: "¿Cuáles son las formas de pago disponibles?", answer: "Aceptamos transferencias bancarias, pagos en efectivo y facilidades de pago según el caso. Pregúntanos sobre opciones de abono o cuotas en casos que lo ameriten." },
-  { question: "¿Cuál es el porcentaje de éxito del estudio?", answer: "Con más de 200 casos resueltos y 10+ años de experiencia, nuestro historial habla por sí solo. Cada caso se analiza de forma honesta — si hay argumentos sólidos, los presentamos; si consideramos que el caso no procede, te lo decimos con claridad." },
-  { question: "¿Puedo recibir asesoría si no estoy en Tulcán, Ibarra o Quito?", answer: "Sí. Contamos con herramientas Legaltech para consultas y seguimiento de casos de forma telemática. Atendemos a clientes en todo el Ecuador sin necesidad de desplazamiento." },
-  { question: "¿Cuánto tiempo tarda un proceso de divorcio en Ecuador?", answer: "Un divorcio voluntario (de mutuo acuerdo) puede resolverse en pocas semanas mediante notaría. Un divorcio contencioso puede tomar entre 3 y 12 meses según la complejidad. Te orientamos sobre la mejor vía para tu situación específica." },
+  {
+    question: "¿Dónde encontrar un abogado especialista en divorcios y pensión de alimentos en Quito e Ibarra?",
+    answer:
+      "El Corporativo Jurídico Paredes & Asociados cuenta con abogados especialistas en Quito e Ibarra para tramitar divorcios de mutuo acuerdo o contenciosos, fijación de pensión de alimentos, incidentes de aumento o rebaja, liquidación de la sociedad conyugal y tenencia de menores.",
+  },
+  {
+    question: "¿Qué hacer en un proceso legal por violencia intrafamiliar, violencia psicológica o lesiones?",
+    answer:
+      "Paredes & Asociados brinda patrocinio penal especializado en Quito e Ibarra tanto en la solicitud o contradicción de boletas de auxilio y medidas de protección inmediatas como en audiencias de juzgamiento por contravenciones y delitos de violencia intrafamiliar, violencia psicológica y lesiones bajo el COIP.",
+  },
+  {
+    question: "¿Cómo realizar la legalización de tierras sin escrituras en Quito o Ibarra?",
+    answer:
+      "La legalización de tierras se gestiona mediante juicios de prescripción extraordinaria adquisitiva de dominio o trámites administrativos municipales de regularización, acreditando la posesión pacífica, pública e ininterrumpida del inmueble por más de 15 años con asesoría legal especializada.",
+  },
+  {
+    question: "¿Cómo defenderse en un sumario administrativo en el sector público?",
+    answer:
+      "Se requiere contestar técnicamente el auto de llamamiento a sumario administrativo dentro de los 10 días de plazo, evacuar pruebas de descargo y periciales, y garantizar el debido proceso (LOSEP) para evitar sanciones disciplinarias o la destitución del servidor público.",
+  },
+  {
+    question: "¿Cuánto cuesta contratar los servicios y cuáles son las formas de pago?",
+    answer:
+      "Los honorarios se determinan de forma personalizada según la complejidad de la causa bajo una política estricta de 'precio acordado = precio final', sin costos sorpresa. Ofrecemos facilidades de pago en cuotas y transferencias bancarias.",
+  },
+  {
+    question: "¿Puedo recibir asesoría legal telemática si no estoy en Quito o Ibarra?",
+    answer:
+      "Sí. Mediante herramientas de Legaltech atendemos consultas virtuales y gestionamos causas en todo el Ecuador y para ecuatorianos en el extranjero, brindando seguimiento constante sin necesidad de traslados.",
+  },
 ];
 
 export const ctaBannerData = {
@@ -218,7 +268,7 @@ export const contactData = {
   title: "Cuéntanos tu caso",
   subtitle: "Primera consulta sin costo. Atendemos de lunes a sábado de 8:00 a 18:00.",
   formTitle: "Solicita tu consulta",
-  areas: ["Derecho de Familia", "Derecho Civil", "Derecho Penal", "Sumario Administrativo", "Trámite Administrativo", "Derecho Laboral", "Otro"],
+  areas: ["Derecho de Familia", "Derecho Civil", "Derecho Penal", "Sumarios Administrativos", "Trámites Administrativos", "Derecho Laboral", "Otro"],
 };
 
 export const socialLinks = [
